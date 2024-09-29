@@ -24,11 +24,17 @@
 
 button {
     background-color: lightgray;
+    box-shadow: 2px 2px 3px gray;
     width: 3.5em;
     height: 3.5em;
     font-size: 2em;
     font-weight: bolder;
     margin: 0.125em;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 #winner {

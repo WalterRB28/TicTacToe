@@ -31,10 +31,14 @@ startButton.addEventListener('click', function(){
 
             if (letter == 'X') {
                 cell.style.backgroundColor = 'red';
+                cell.style.boxShadow = `2px 2px 5px ${cell.style.backgroundColor}`; // Desplazamiento más grande y difuminado
+
             }
             
             if (letter == 'O') {
                 cell.style.backgroundColor = 'blue';
+                cell.style.boxShadow = `2px 2px 5px ${cell.style.backgroundColor}`; // Desplazamiento más grande y difuminado
+
             }
 
             winnerLabel.textContent = winnerPatter(cells, letter);
