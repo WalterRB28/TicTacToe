@@ -3,7 +3,6 @@ let turn = true;
 const startButton = document.getElementById('startButton');
 const resetButton = document.getElementById('resetButton');
 const winnerLabel = document.getElementById('winner');
-const board = document.getElementById('board');
 
 const c1f1 = document.getElementById('c1-f1');
 const c2f1 = document.getElementById('c2-f1');
@@ -24,20 +23,22 @@ const cells = [
 ];
 
 startButton.addEventListener('click', function(){
-    board.style.display = 'block';
     cells.forEach(cell => {
         cell.addEventListener('click', function () {
-            let letra = changeLetter(turn);
-            cell.textContent = letra;
+            let letter = changeLetter(turn);
+            cell.textContent = letter;
             cell.style.color = 'white';
 
-            if (letra == 'X') {
+            if (letter == 'X') {
                 cell.style.backgroundColor = 'red';
             }
             
-            if (letra == 'O') {
+            if (letter == 'O') {
                 cell.style.backgroundColor = 'blue';
             }
+
+            winnerLabel.textContent = winnerPatter(cells, letter);
+            winnerLabel.style.color = cell.style.backgroundColor;
 
             turn = !turn;
         })
@@ -45,11 +46,7 @@ startButton.addEventListener('click', function(){
 });
 
 resetButton.addEventListener('click', function(){
-    cells.forEach(cell => {
-        cell.textContent = '';
-        cell.style.backgroundColor = 'lightgrey';
-        turn = !turn;
-    });
+    location.reload();
 });
 
 function changeLetter(bool){
@@ -59,5 +56,25 @@ function changeLetter(bool){
 
     if (!bool) {
         return 'O';
+    }
+}
+
+function winnerPatter(cells, letter) {
+    if (cells[0].textContent == letter && cells[1].textContent == letter && cells[2].textContent == letter) {
+        return `${letter} won!`;
+    } else if (cells[3].textContent == letter && cells[4].textContent == letter && cells[5].textContent == letter) {
+        return `${letter} won!`;
+    } else if (cells[6].textContent == letter && cells[7].textContent == letter && cells[8].textContent == letter) {
+        return `${letter} won!`;
+    } else if (cells[0].textContent == letter && cells[3].textContent == letter && cells[6].textContent == letter) {
+        return `${letter} won!`;
+    } else if (cells[1].textContent == letter && cells[4].textContent == letter && cells[7].textContent == letter) {
+        return `${letter} won!`;
+    } else if (cells[2].textContent == letter && cells[5].textContent == letter && cells[8].textContent == letter) {
+        return `${letter} won!`;
+    } else if (cells[0].textContent == letter && cells[4].textContent == letter && cells[8].textContent == letter) {
+        return `${letter} won!`;
+    } else if (cells[2].textContent == letter && cells[4].textContent == letter && cells[6].textContent == letter) {
+        return `${letter} won!`;
     }
 }

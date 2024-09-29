@@ -1,9 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
 #container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1em;
 }
 
 #buttons {
@@ -11,11 +19,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1em;
-}
-
-#board {
-    display: none;
+    margin: 0.5em;
 }
 
 button {
@@ -24,5 +28,11 @@ button {
     height: 3.5em;
     font-size: 2em;
     font-weight: bolder;
+    margin: 0.125em;
 }
 
+#winner {
+    font-size: 3em;
+    text-align: center;
+    margin: 0.4em;
+}
